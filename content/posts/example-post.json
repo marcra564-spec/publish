@@ -1,0 +1,10 @@
+{
+  "id": "example-post",
+  "text": "To jest przykladowy wpis. Zmien tresc, ustaw publishAt w przyszlosci i status na \"pending\", aby zostal opublikowany.",
+  "media": {
+    "type": "none"
+  },
+  "platforms": ["twitter"],
+  "publishAt": "2099-01-01T00:00:00Z",
+  "status": "pending"
+}

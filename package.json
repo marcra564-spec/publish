@@ -1,0 +1,23 @@
+{
+  "name": "social-publish",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Automatyczna publikacja zaplanowanych tresci na X, Instagram, Facebook i TikTok",
+  "type": "module",
+  "scripts": {
+    "publish:run": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "twitter-api-v2": "^1.18.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
