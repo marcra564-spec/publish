@@ -35,6 +35,7 @@ jobs:
           TIKTOK_PRIVACY_LEVEL: ${{ secrets.TIKTOK_PRIVACY_LEVEL }}
 
       - name: Zapisz statusy wpisow
+        if: always()
         run: |
           git config user.name "social-publish-bot"
           git config user.email "actions@users.noreply.github.com"
