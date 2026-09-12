@@ -30,9 +30,11 @@ async function publishPost(post: Post): Promise<PlatformResult[]> {
       results.push({ platform, id });
       console.log(`[OK] ${post.id} -> ${platform}: ${id}`);
     } catch (err) {
+      const detail = (err as { data?: unknown })?.data;
       const message = err instanceof Error ? err.message : String(err);
-      results.push({ platform, error: message });
-      console.error(`[FAIL] ${post.id} -> ${platform}: ${message}`);
+      const full = detail ? `${message} | ${JSON.stringify(detail)}` : message;
+      results.push({ platform, error: full });
+      console.error(`[FAIL] ${post.id} -> ${platform}: ${full}`);
     }
   }
 
