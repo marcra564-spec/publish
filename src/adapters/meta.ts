@@ -16,6 +16,33 @@ async function graphPost(pathSegment: string, params: Record<string, string>): P
   return json;
 }
 
+async function graphGet(pathSegment: string, params: Record<string, string>): Promise<any> {
+  const url = `https://graph.facebook.com/${GRAPH_API_VERSION}/${pathSegment}?${new URLSearchParams(params)}`;
+  const res = await fetch(url);
+  const json = await res.json();
+  if (!res.ok) {
+    throw new Error(`Graph API error (${pathSegment}): ${JSON.stringify(json)}`);
+  }
+  return json;
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function waitUntilMediaReady(creationId: string, accessToken: string): Promise<void> {
+  const maxAttempts = 15;
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    const status = await graphGet(creationId, { fields: "status_code", access_token: accessToken });
+    if (status.status_code === "FINISHED") return;
+    if (status.status_code === "ERROR") {
+      throw new Error(`Instagram nie przetworzyl mediow (creation_id=${creationId}): ${JSON.stringify(status)}`);
+    }
+    await sleep(2000);
+  }
+  throw new Error(`Instagram nie przetworzyl mediow w oczekiwanym czasie (creation_id=${creationId})`);
+}
+
 export class FacebookAdapter implements PlatformAdapter {
   readonly name = "facebook" as const;
 
@@ -80,6 +107,7 @@ export class InstagramAdapter implements PlatformAdapter {
     }
 
     const container = await graphPost(`${igUserId}/media`, containerParams);
+    await waitUntilMediaReady(container.id, accessToken);
     const published = await graphPost(`${igUserId}/media_publish`, {
       creation_id: container.id,
       access_token: accessToken,
