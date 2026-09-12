@@ -4,7 +4,16 @@
   "media": {
     "type": "none"
   },
-  "platforms": ["twitter"],
+  "platforms": [
+    "twitter"
+  ],
   "publishAt": "2026-09-12T00:00:00Z",
-  "status": "pending"
+  "status": "published",
+  "results": [
+    {
+      "platform": "twitter",
+      "id": "2098771161161277563"
+    }
+  ],
+  "publishedAt": "2026-09-12T13:50:12.594Z"
 }
