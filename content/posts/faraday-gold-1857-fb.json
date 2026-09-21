@@ -5,7 +5,21 @@
     "type": "image",
     "url": "https://marcin--e03b0edc6cc111f195661607ee4eb77e.web.val.run/img/img%3A1789996561451%3A6cdark.png"
   },
-  "platforms": ["facebook", "instagram"],
+  "platforms": [
+    "facebook",
+    "instagram"
+  ],
   "publishAt": "2026-09-21T00:00:00Z",
-  "status": "pending"
+  "status": "failed",
+  "results": [
+    {
+      "platform": "facebook",
+      "error": "Graph API error (1256157887587898/photos): {\"error\":{\"message\":\"Error validating access token: Session has expired on Saturday, 12-Sep-26 11:00:00 PDT. The current time is Monday, 21-Sep-26 06:21:11 PDT.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":463,\"fbtrace_id\":\"AxkcZJ0O43_pEwNFQDVKDlT\"}}"
+    },
+    {
+      "platform": "instagram",
+      "error": "Graph API error (17841431272018361/media): {\"error\":{\"message\":\"Error validating access token: Session has expired on Saturday, 12-Sep-26 11:00:00 PDT. The current time is Monday, 21-Sep-26 06:21:11 PDT.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":463,\"fbtrace_id\":\"A6zvwRel5sXjXJMdfDP3T0N\"}}"
+    }
+  ],
+  "publishedAt": "2026-09-21T13:21:10.797Z"
 }
