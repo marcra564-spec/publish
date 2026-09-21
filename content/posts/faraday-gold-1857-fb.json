@@ -5,7 +5,21 @@
     "type": "image",
     "url": "https://marcin--e03b0edc6cc111f195661607ee4eb77e.web.val.run/img/img%3A1789996561451%3A6cdark.png"
   },
-  "platforms": ["facebook", "instagram"],
+  "platforms": [
+    "facebook",
+    "instagram"
+  ],
   "publishAt": "2026-09-21T00:00:00Z",
-  "status": "pending"
+  "status": "published",
+  "results": [
+    {
+      "platform": "facebook",
+      "id": "1256157887587898_122109385509475553"
+    },
+    {
+      "platform": "instagram",
+      "id": "18108401408181986"
+    }
+  ],
+  "publishedAt": "2026-09-21T13:32:07.303Z"
 }
